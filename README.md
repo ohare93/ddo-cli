@@ -50,6 +50,11 @@ Den Danske Ordbog which can be found at http://ordnet.dk
     Orddannelser:
     AFLEDNINGER: _behændighed_ sb. | _ubehændig_ adj.
 
+## Todo
+
+ASCII color output on terminal using
+[termcolor](https://pypi.python.org/pypi/termcolor).
+
 ## License
 Copyright (C) 2016 Thomas Boevith
 
