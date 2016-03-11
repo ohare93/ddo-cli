@@ -42,7 +42,6 @@ Den Danske Ordbog which can be found at http://ordnet.dk
     Fyn med omliggende øer / Danmark - Gyldendal, 1989.
 
     2.b som vidner om denne evne
-
     han [roser] hendes behændige forstillelseskunst og list i vanskelige
     situationer -- Anne E. Jensen: Holberg og kvinderne eller Et forsvar for
     ligeretten - Gyldendal, 1984.
@@ -52,8 +51,16 @@ Den Danske Ordbog which can be found at http://ordnet.dk
 
 ## Todo
 
+Word wrapping option to avoid too long lines
+
 ASCII color output on terminal using
 [termcolor](https://pypi.python.org/pypi/termcolor).
+
+Display word of the day
+
+Play pronounciation sound files
+
+Output to non-Unicode terminals
 
 ## License
 Copyright (C) 2016 Thomas Boevith
