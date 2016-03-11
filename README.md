@@ -53,6 +53,8 @@ Den Danske Ordbog which can be found at http://ordnet.dk
 
 Word wrapping option to avoid too long lines
 
+Parallel, multi-threaded fetching of URLS
+
 ASCII color output on terminal using
 [termcolor](https://pypi.python.org/pypi/termcolor).
 
