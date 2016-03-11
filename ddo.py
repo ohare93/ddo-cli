@@ -43,7 +43,7 @@ WARRANTY, to the extent permitted by law.
 
 
 class Word:
-    """A word class"""
+    """A word class."""
     def __init__(self, word, senses=[], numsenses=0):
         self.word = word
         self.senses = senses
@@ -51,7 +51,7 @@ class Word:
         self.download()
 
     def download(self):
-        """Retrieves dictionary word entry from a word page"""
+        """Retrieves dictionary word entry from a word page."""
         page = get_page(word=args['<word>'])
         if page is None:
             log.debug('Page is empty')
@@ -72,7 +72,7 @@ class Word:
 
 
 class Sense:
-    """A word sense class"""
+    """A word sense class."""
     newid = itertools.count().next
 
     def __init__(self, headword=None, sense=None, sensenum=None,
@@ -95,6 +95,7 @@ class Sense:
         self.wordformations = wordformations
 
     def prettyprint(self):
+        """Prints word sense to standard out."""
         if self.sense is None:
             return
         print(self.sense),
@@ -157,6 +158,7 @@ class Sense:
 
 
 def gettext(soupfind):
+    """Get the text of an element, stripping off white space."""
     if soupfind is not None:
         try:
             return soupfind.get_text().strip()
@@ -165,6 +167,7 @@ def gettext(soupfind):
 
 
 def supernumeral(num, encoding='utf-8'):
+    """Convert integer to superscript integer."""
     if encoding == 'utf-8':
         superscripts = ['⁰', '¹', '²', '³', '⁴', '⁵', '⁶', '⁷', '⁸', '⁹']
         superdigit = ''
@@ -176,6 +179,7 @@ def supernumeral(num, encoding='utf-8'):
 
 
 def getsenseurls(page):
+    """Retrieve all URLS for the senses of a word."""
     soup = BeautifulSoup(page, 'lxml')
     senseurls = []
     try:
@@ -196,7 +200,7 @@ def getsenseurls(page):
 
 
 def get_page(word=None, url=None):
-    """Download page for a word by word or by complete url"""
+    """Download page for a word using either the word or the complete url."""
     if url is not None:
         url = url
     else:
@@ -233,6 +237,7 @@ def get_page(word=None, url=None):
 
 
 def get_sense(sensepage, headword):
+    """Extract elements of a word sense by parsning the HTML page."""
     if sensepage is None:
         log.error('Page is empty: %s' % senseurl)
         return None
