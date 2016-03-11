@@ -17,7 +17,7 @@ __doc__ = """
 ddo.py {version} --- look up words in Den Danske Ordbog
 
 A command-line interface for looking up words in the Danish online dictionary
-Den Danske Ordbog which can be found at http://ordnet.dk
+Den Danske Ordbog which can be found at http://ordnet.dk/ddo
 
 Usage:
   {filename} [-S] [-s ...] [-v ...] <word>
