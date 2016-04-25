@@ -51,6 +51,8 @@ Den Danske Ordbog which can be found at http://ordnet.dk/ddo
 
 ## Todo
 
+Retrieve expressions ('faste udtryk')
+
 Word wrapping option to avoid too long lines
 
 Parallel, multi-threaded fetching of URLS
