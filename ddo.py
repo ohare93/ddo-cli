@@ -399,7 +399,7 @@ if __name__ == '__main__':
 
     log = logging.getLogger(os.path.basename(__file__))
     formatstr = '%(asctime)-15s %(name)-17s %(levelname)-5s %(message)s'
-    if args['-v'] == 2:
+    if args['-v'] >= 2:
         logging.basicConfig(level=logging.DEBUG, format=formatstr)
     elif args['-v'] == 1:
         logging.basicConfig(level=logging.INFO, format=formatstr)
