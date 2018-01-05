@@ -103,7 +103,10 @@ class Sense:
         if args['-i']:
             printu(self.sense)
             for i in self.inflection.split(','):
-                if i[0] == '-':
+                if 'eller' in i.strip():
+                    for a in i.split('eller'):
+                        printu("%s%s" % (self.sense, a.strip().strip('-')))
+                elif i.strip()[0] == '-':
                     printu("%s%s" % (self.sense, i.strip().strip('-')))
                 else:
                     printu(i.strip())
