@@ -20,13 +20,14 @@ A command-line interface for looking up words in the Danish online dictionary
 Den Danske Ordbog which can be found at http://ordnet.dk/ddo
 
 Usage:
-  {filename} [-S] [-s ...] [-v ...] <word>
+  {filename} [-S] [-s ...] [-v ...] [-i] <word>
   {filename} (-h | --help)
   {filename} --version
 
 Options:
   -S                  Very short output (same as -ssss)
   -s                  Short output (add up to four s'es for shorter output).
+  -i                  Print word and its inflections only.
   -h, --help          Show this screen.
   --version           Show version.
   -v                  Print info (-vv for printing lots of info (debug)).
@@ -98,6 +99,13 @@ class Sense:
         """Prints word sense to standard out."""
         if self.sense is None:
             return
+
+        if args['-i']:
+            print("%s" % self.sense)
+            for i in self.inflection.split(','):
+                print("%s%s" % (self.sense, i.strip().strip('-')))
+            return
+
         print(self.sense),
         if self.sensenumstring is not None:
             print(self.sensenumstring),
