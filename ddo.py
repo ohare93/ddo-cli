@@ -101,71 +101,71 @@ class Sense:
             return
 
         if args['-i']:
-            print("%s" % self.sense)
+            printu(self.sense)
             for i in self.inflection.split(','):
                 if i[0] == '-':
-                    print("%s%s" % (self.sense, i.strip().strip('-')))
+                    printu("%s%s" % (self.sense, i.strip().strip('-')))
                 else:
-                    print(i.strip())
+                    printu(i.strip())
             return
 
-        print(self.sense),
+        printun(self.sense)
         if self.sensenumstring is not None:
-            print(self.sensenumstring),
+            printun(self.sensenumstring)
         elif self.sensenum is not None:
-            print(self.sensenum),
+            printun(self.sensenum)
         if self.pronounciation is not None:
-            print(self.pronounciation),
+            printun(self.pronounciation)
         if self.part_of_speech is not None:
-            print(self.part_of_speech),
+            printun(self.part_of_speech)
         print
         if args['-s'] > 3:
             return
         if self.comment is not None:
-            print(self.comment)
+            printu(self.comment)
         if self.inflection is not None:
             print('Bøjning:'),
-            print(self.inflection)
+            printu(self.inflection)
         if args['-s'] > 2:
             print
             return
         if self.etymology is not None:
-            print('Oprindelse:'),
-            print(self.etymology)
+            printun('Oprindelse:')
+            printu(self.etymology)
         if args['-s'] > 1:
             print
             return
         if self.meanings != []:
             print
-            print('Betydninger:')
+            printu('Betydninger:')
             for i, meaning in enumerate(self.meanings):
                 if meaning['id'] is not None:
                     if len(meaning['id']) == 1:
-                        print(str(meaning['id'][0]) + '.'),
+                        printun(str(meaning['id'][0]) + '.')
                     elif len(meaning['id']) == 2:
-                        print(str(meaning['id'][0]) + '.'
-                              + chr(int(meaning['id'][1]) + ord('a'))),
+                        printun(str(meaning['id'][0]) + '.'
+                              + chr(int(meaning['id'][1]) + ord('a')))
                     else:
-                        print('.'.join(meaning['id'])),
+                        printun('.'.join(meaning['id']))
 
                 if meaning['topic'] is not None:
-                    print(meaning['topic'].upper()),
-                print(meaning['meaning'])
+                    printun(meaning['topic'].upper())
+                printu(meaning['meaning'])
                 if meaning['onyms'] is not None:
                     for j, onym in enumerate(meaning['onyms']):
-                        print(onym)
+                        printu(onym)
 
                     if i < len(self.meanings) - 1:
                             print
 
         if self.wordformations != []:
             print
-            print('Orddannelser:')
+            printu('Orddannelser:')
             for i, formation in enumerate(self.wordformations):
-                print(formation)
+                printu(formation)
 
         if self.id < self.headword.numsenses - 1:
-            print('-' * 79)
+            printu('-' * 79)
 
 
 def gettext(soupfind):
@@ -208,6 +208,14 @@ def getsenseurls(page):
             url = (link.get('href')).encode('latin-1')
             senseurls.append(url)
         return senseurls
+
+
+def printu(s):
+    print("%s" % s.encode('utf-8'))
+
+
+def printun(s):
+    print("%s" % s.encode('utf-8')),
 
 
 def get_page(word=None, url=None):
