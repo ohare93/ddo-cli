@@ -103,7 +103,10 @@ class Sense:
         if args['-i']:
             print("%s" % self.sense)
             for i in self.inflection.split(','):
-                print("%s%s" % (self.sense, i.strip().strip('-')))
+                if i[0] == '-':
+                    print("%s%s" % (self.sense, i.strip().strip('-')))
+                else:
+                    print(i.strip())
             return
 
         print(self.sense),
